@@ -11,7 +11,7 @@ COPY qemu-arm-static /usr/bin
 
 RUN apt-get update && \
     apt-get install -y gnupg && \
-    printf "\ndeb http://ppa.launchpad.net/gluster/glusterfs-5/ubuntu bionic main" >> /etc/apt/sources.list && \
+    printf "\ndeb http://ppa.launchpad.net/gluster/glusterfs-6/ubuntu bionic main" >> /etc/apt/sources.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F7C73FCC930AC9F83B387A5613E01B7B3FE869A9 && \
     apt-get update && \
     apt-get install -y glusterfs-server && \
@@ -24,6 +24,6 @@ RUN apt-get update && \
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-EXPOSE 2222 111 139 445 965 2049 24007 38465 38466 38468 38469 49152-49251
+EXPOSE 2222 111 139 445 965 2049 24007 24008 38465 38466 38468 38469 49152-49251
 
 CMD [ "/usr/bin/supervisord" ]
