@@ -1,13 +1,9 @@
-ARG BASE_IMAGE=arm32v7/ubuntu:18.04
-
-FROM ${BASE_IMAGE}
+FROM ubuntu:18.04
 LABEL maintainer="Jimmy Au<jjbubudi@gmail.com>"
 
 ENV container=docker \
     LC_ALL=C \
     DEBIAN_FRONTEND=noninteractive
-
-COPY qemu-arm-static /usr/bin
 
 RUN apt-get update && \
     apt-get install -y gnupg && \
