@@ -73,6 +73,11 @@ steps:
 ---
 kind: pipeline
 name: manifest
+
+platform:
+  os: linux
+  arch: amd64
+
 steps:
 - name: manifest
   image: plugins/manifest
