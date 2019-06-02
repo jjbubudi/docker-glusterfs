@@ -74,26 +74,7 @@ steps:
 kind: pipeline
 name: manifest
 steps:
-- name: manifest-latest
-  image: plugins/manifest
-  settings:
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
-    platforms:
-      - linux/amd64
-      - linux/arm64
-      - linux/arm
-    target: "jjbubudi/glusterfs:latest"
-    template: "jjbubudi/glusterfs:${DRONE_TAG}-ARCH"
-  when:
-    ref:
-    - refs/head/master
-    - refs/tags/*
-    event:
-    - tag
-- name: manifest-versioned
+- name: manifest
   image: plugins/manifest
   settings:
     username:
