@@ -3,7 +3,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/jjbubudi/glusterfs.svg)](https://hub.docker.com/r/jjbubudi/glusterfs)
 
 ## Overview
-Ubuntu based GluserFS images
+Ubuntu based GlusterFS images
 
 ## Supported architectures
 - amd64
