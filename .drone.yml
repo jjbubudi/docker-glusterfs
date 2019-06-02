@@ -79,8 +79,28 @@ platform:
   arch: amd64
 
 steps:
-- name: manifest
-  image: plugins/manifest
+- name: manifest-latest
+  image: plugins/manifest:1.0.2
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    platforms:
+      - linux/amd64
+      - linux/arm64
+      - linux/arm
+    target: "jjbubudi/glusterfs:latest"
+    template: "jjbubudi/glusterfs:${DRONE_TAG}-ARCH"
+  when:
+    ref:
+    - refs/head/master
+    - refs/tags/*
+    event:
+    - tag
+
+- name: manifest-versioned
+  image: plugins/manifest:1.0.2
   settings:
     username:
       from_secret: docker_username
